@@ -776,6 +776,11 @@ escape-string-regexp@^1.0.5:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
+eslint-config-wesbos@^0.0.19:
+  version "0.0.19"
+  resolved "https://registry.yarnpkg.com/eslint-config-wesbos/-/eslint-config-wesbos-0.0.19.tgz#e89a7ce5c27562295234088176346daf2b12e8b7"
+  integrity sha512-2NTh0BzSMd1VEE5jEgC40T3QQTrdCEe19mm15m/CV1/314lYtPp5GmM2t26AojxrjfKhBkJR9Thiv6w1U8i/zg==
+
 etag@~1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"

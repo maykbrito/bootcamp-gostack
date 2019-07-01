@@ -3,7 +3,7 @@ module.exports = {
     es6:true,
     node: true,
   },
-  extends: 'webos',
+  extends: 'wesbos',
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -13,6 +13,7 @@ module.exports = {
     sourceType: 'module'
   },
   rules: {
+    "no-shadow": "off",
     "class-methods-use-this": "off",
     "no-param-reassign": "off",
     "camelcase": "off",
