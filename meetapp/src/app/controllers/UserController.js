@@ -14,16 +14,15 @@ class UserController {
         .min(6),
     });
 
-    if (!(await schema.isValid(req.body))) {
+    if (!(await schema.isValid(req.body)))
       return res.status(400).json({ error: 'Validation Fails!' });
-    }
 
     const userExists = await User.findOne({ where: { email: req.body.email } });
     if (userExists)
       return res.status(400).json({ error: 'User Already Exists' });
 
-    const { id, name, email, provider } = await User.create(req.body);
-    return res.json({ id, name, email, provider });
+    const { id, name, email } = await User.create(req.body);
+    return res.json({ id, name, email });
   }
 
   async update(req, res) {
@@ -41,27 +40,25 @@ class UserController {
       ),
     });
 
-    if (!(await schema.isValid(req.body))) {
+    if (!(await schema.isValid(req.body)))
       return res.status(400).json({ error: 'Validation Fails!' });
-    }
 
     const { email, oldPassword } = req.body;
 
     const user = await User.findByPk(req.userId);
 
-    if (email !== user.email) {
+    if (email && email !== user.email) {
       const userExists = await User.findOne({ where: { email } });
       if (userExists)
         return res.status(400).json({ error: 'User Already Exists' });
     }
 
-    if (oldPassword && !(await user.checkPassword(oldPassword))) {
+    if (oldPassword && !(await user.checkPassword(oldPassword)))
       return res.status(401).json({ error: 'Password does not match' });
-    }
 
-    const { id, name, provider } = await user.update(req.body);
+    const { id, name } = await user.update(req.body);
 
-    return res.json({ id, name, email, provider });
+    return res.json({ id, name, email });
   }
 }
 
