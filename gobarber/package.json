@@ -4,14 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/server.js",
-    "queue": "nodemon src/queue.js",
+    "dev": "concurrently \"yarn run server_mon\" \"yarn run queue_mon\"",
+    "server_mon": "nodemon src/server.js",
+    "queue_mon": "nodemon src/queue.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "bee-queue": "^1.2.2",
+    "concurrently": "^4.1.1",
     "date-fns": "^2.0.0-beta.2",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
